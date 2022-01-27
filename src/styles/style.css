@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .fluid-container {
+        /* @apply max-w-screen-xl mx-auto; */
+        @apply w-full px-6 lg:px-[100px];
+    }
+}

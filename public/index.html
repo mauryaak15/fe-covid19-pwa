@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <title>Covid19 Tracker</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0f172a" />
+    <meta name="apple-mobile-web-app-title" content="Covid19 Tracker" />
+    <meta name="description" content="Covid19 Trackerx" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/assets/icons/icons-512.png" />
+</head>
+
+<body>
+    <noscript>Please enable JavaScript to continue using this application.</noscript>
+    <div id="root"></div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(
+                    registration => {
+                        console.log(`Service Worker registered! Scope: ${registration.scope}`);
+                    },
+                    error => {
+                        console.error(`Service Worker registration failed: ${error}`);
+                    },
+                );
+            });
+        }
+    </script>
+</body>
+
+</html>

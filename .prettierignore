@@ -1,0 +1,9 @@
+node_modules/
+__tests__/
+.husky/
+.eslintignore
+.prettierignore
+.gitignore
+public/
+.env.example
+src/assets/

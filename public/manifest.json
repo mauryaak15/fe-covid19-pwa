@@ -1,0 +1,23 @@
+{
+  "name": "Covid19 Tracker PWA",
+  "short_name": "COVID19",
+  "description": "PWA which fetches data from govt website",
+  "icons": [
+    {
+      "src": "/assets/icons/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/icons/icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?launch=pwa",
+  "background_color": "#0f172a",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "theme_color": "#94a3b8"
+}

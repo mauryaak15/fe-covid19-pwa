@@ -1,0 +1,42 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "lib": ["es6", "dom"],
+        "allowJs": true,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "isolatedModules": true,
+        "noEmit": false,
+        "strict": true,
+        "baseUrl": ".",
+        "paths": {
+            "@components": ["src/components"],
+            "@containers": ["src/containers"],
+            "@utils": ["src/utils"],
+            "@hooks": ["src/hooks"],
+            "@assets": ["src/assets"],
+            "@libs": ["src/libs"],
+            "@pages": ["src/pages"],
+            "@store": ["src/store"],
+            "@store/*": ["src/store/*"],
+            "@typings/*": ["src/typings/*"]
+        },
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "exclude": [
+        "node_modules",
+        "babel.config.js",
+        "webpack.config.js",
+        "postcss.config.js",
+        "tailwind.config.js",
+        "__tests__/**/*-test.ts",
+        "dist",
+        "public"
+    ],
+    "typeRoots": ["src/typings", "node_modules/@types"]
+}

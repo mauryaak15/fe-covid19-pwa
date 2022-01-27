@@ -1,0 +1,5 @@
+{
+    "app": {
+        "apiBaseUrl": "https://bff-covid19.herokuapp.com"
+    }
+}

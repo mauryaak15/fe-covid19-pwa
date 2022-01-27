@@ -157,6 +157,7 @@ const IndiaMap = ({
                                 s.state_name?.toLowerCase().trim() ===
                                 geo.properties.name?.toLowerCase().trim()
                         );
+                        const stroke = COLOR_RANGES.get(activeSummaryCard);
                         return (
                             <Geography
                                 key={geo.rsmKey}
@@ -166,9 +167,10 @@ const IndiaMap = ({
                                     ...{
                                         default: {
                                             ...geographyStyle.default,
-                                            stroke: COLOR_RANGES.get(
-                                                activeSummaryCard
-                                            )?.at(5),
+                                            stroke:
+                                                stroke && stroke.length
+                                                    ? stroke[5]
+                                                    : DEFAULT_COLOR,
                                         },
                                     },
                                 }}

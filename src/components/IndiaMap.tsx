@@ -139,6 +139,9 @@ const IndiaMap = ({
             ) || []
         )
         .range(COLOR_RANGES.get(activeSummaryCard) as any);
+    const selectedState = useSelector<RootState>(
+        (state) => state.core.selectedState
+    ) as EStates | undefined | '';
     return (
         <ComposableMap
             projectionConfig={PROJECTION_CONFIG}
@@ -157,7 +160,27 @@ const IndiaMap = ({
                                 s.state_name?.toLowerCase().trim() ===
                                 geo.properties.name?.toLowerCase().trim()
                         );
-                        const stroke = COLOR_RANGES.get(activeSummaryCard);
+                        const stroke =
+                            COLOR_RANGES.get(activeSummaryCard) ||
+                            DEFAULT_COLOR;
+                        const contrastStroke =
+                            COLOR_RANGES.get(
+                                activeSummaryCard === ECases.deaths
+                                    ? ECases.active
+                                    : ECases.deaths
+                            ) || DEFAULT_COLOR;
+                        const selectedStroke =
+                            (contrastStroke &&
+                                contrastStroke.length &&
+                                contrastStroke[6]) ||
+                            DEFAULT_COLOR;
+                        const nonSelectedStroke =
+                            (stroke && stroke.length && stroke[5]) ||
+                            DEFAULT_COLOR;
+                        const isRegionSelected =
+                            selectedState &&
+                            selectedState ===
+                                mapStatesToDataStates[geo.properties.name];
                         return (
                             <Geography
                                 key={geo.rsmKey}
@@ -167,10 +190,13 @@ const IndiaMap = ({
                                     ...{
                                         default: {
                                             ...geographyStyle.default,
-                                            stroke:
-                                                stroke && stroke.length
-                                                    ? stroke[5]
-                                                    : DEFAULT_COLOR,
+                                            strokeWidth: isRegionSelected
+                                                ? 1.2
+                                                : geographyStyle.default
+                                                      .strokeWidth,
+                                            stroke: isRegionSelected
+                                                ? selectedStroke
+                                                : nonSelectedStroke,
                                         },
                                     },
                                 }}

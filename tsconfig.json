@@ -36,7 +36,8 @@
         "tailwind.config.js",
         "__tests__/**/*-test.ts",
         "dist",
-        "public"
+        "public",
+        "src/sw.js"
     ],
     "typeRoots": ["src/typings", "node_modules/@types"]
 }

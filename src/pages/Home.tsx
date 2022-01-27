@@ -206,7 +206,7 @@ const Home = () => {
                             <DataTable rows={covidData?.stateData || []} />
                         )}
                     </div>
-                    <div className="rounded-md ">
+                    <div className="rounded-md sticky top-0 self-start">
                         {!isLoading && (
                             <div>
                                 <IndiaMap setTooltipContent={setToolTip} />

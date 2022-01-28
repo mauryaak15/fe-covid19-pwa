@@ -30,11 +30,11 @@ module.exports = {
     safelist: [
         {
             pattern: /text-(sky|green|red)-[\d+]{1,3}/,
-            variants: ['hover', 'dark'],
+            variants: ['hover', 'dark', 'dark:hover'],
         },
         {
             pattern: /bg-(sky|green|red)-[\d+]{1,3}/,
-            variants: ['hover', 'dark'],
+            variants: ['hover', 'dark', 'dark:hover'],
         },
     ],
 };

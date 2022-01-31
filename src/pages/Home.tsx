@@ -63,7 +63,7 @@ const Home = () => {
             <PageHeader />
             <div className="fluid-container pb-52">
                 <div className="grid md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8">
-                    {covidData?.summary.map(
+                    {covidData?.summary?.map(
                         ({type, totalCase, changeFlow, newCase}) => {
                             let isTrendHealthy = changeFlow !== 'up';
                             let bgColor = 'sky';

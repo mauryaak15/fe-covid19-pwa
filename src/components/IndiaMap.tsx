@@ -155,7 +155,7 @@ const IndiaMap = ({
             <Geographies geography={INDIA_TOPO_JSON}>
                 {({geographies}) =>
                     geographies.map((geo) => {
-                        const current = covidStateData.find(
+                        const current = covidStateData?.find(
                             (s) =>
                                 s.state_name?.toLowerCase().trim() ===
                                 geo.properties.name?.toLowerCase().trim()

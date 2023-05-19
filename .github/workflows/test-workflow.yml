@@ -1,0 +1,47 @@
+name: Test workflow
+
+on: [pull_request, issue_comment]
+
+env:
+  APP_NAME: frontend-sme-dashboard
+  HOME: /actions-runner/_work
+  GITHUB_ACCESS_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
+  PROJECT_NAME: onboarding
+  ImageOS: ubuntu20
+defaults:
+  run:
+    working-directory: onboarding
+
+jobs:
+  test-workflow-1:
+    name: Test workflow 1
+    timeout-minutes: 30
+    runs-on: [self-hosted]
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: E2E Test Webhook
+          run: echo "hello 1"
+
+  test-workflow-2:
+    name: Test workflow 2
+    timeout-minutes: 30
+    runs-on: [self-hosted]
+    if: ${{ github.event.issue.pull_request && contains(github.event.comment.body, format('https://sme-dashboard-pr-{0}.dev.razorpay.in', github.event.issue.number)) }}
+    steps:
+      - name: Checkout latest code of PR
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: Test workflow 1
+        uses: lewagon/wait-on-check-action@v1.2.0
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          check-name: Build onboarding E2E binaries for PR
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      - name: E2E Test Webhook
+        run: echo "hello"

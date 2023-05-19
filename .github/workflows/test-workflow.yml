@@ -16,7 +16,7 @@ jobs:
   test-workflow-1:
     name: Test workflow 1
     timeout-minutes: 30
-    runs-on: [self-hosted]
+    # runs-on: [self-hosted]
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Checkout Codebase
@@ -29,7 +29,7 @@ jobs:
   test-workflow-2:
     name: Test workflow 2
     timeout-minutes: 30
-    runs-on: [self-hosted]
+    # runs-on: [self-hosted]
     if: ${{ github.event.issue.pull_request && contains(github.event.comment.body, format('https://sme-dashboard-pr-{0}.dev.razorpay.in', github.event.issue.number)) }}
     steps:
       - name: Checkout latest code of PR

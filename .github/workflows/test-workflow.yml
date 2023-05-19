@@ -33,10 +33,15 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
+      - name: Fetch data of comment's associated PR
+        uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Test workflow 1
         uses: lewagon/wait-on-check-action@v1.2.0
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ steps.comment-branch.outputs.head_sha }}
           check-name: Build onboarding E2E binaries for PR
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10

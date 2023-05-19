@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: E2E Test Webhook
-          run: echo "hello 1"
+        run: echo "hello 1"
 
   test-workflow-2:
     name: Test workflow 2

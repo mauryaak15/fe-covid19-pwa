@@ -4,7 +4,7 @@ on: [pull_request, issue_comment]
 
 env:
   APP_NAME: frontend-sme-dashboard
-  HOME: /actions-runner/_work
+  # HOME: /actions-runner/_work
   GITHUB_ACCESS_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
   PROJECT_NAME: onboarding
   ImageOS: ubuntu20

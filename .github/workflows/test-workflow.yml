@@ -8,9 +8,6 @@ env:
   GITHUB_ACCESS_TOKEN: ${{ secrets.CI_BOT_TOKEN }}
   PROJECT_NAME: onboarding
   ImageOS: ubuntu20
-defaults:
-  run:
-    working-directory: onboarding
 
 jobs:
   test-workflow-1:

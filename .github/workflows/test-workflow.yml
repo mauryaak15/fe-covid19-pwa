@@ -38,11 +38,11 @@ jobs:
         id: comment-branch
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Test workflow 1
+      - name: wait for Test workflow 1
         uses: lewagon/wait-on-check-action@v1.2.0
         with:
           ref: ${{ steps.comment-branch.outputs.head_sha }}
-          check-name: Build onboarding E2E binaries for PR
+          check-name: Test workflow 1
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
       - name: E2E Test Webhook
